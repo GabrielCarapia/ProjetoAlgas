@@ -19,7 +19,7 @@ countAmarelo = 0
 countVermelho = 0
 
 def main():
-    con = criar_conexao("localhost", "root", "oximetro")
+    con = criar_conexao("localhost", "root", "Gcc#77801", "oximetro")
     for n in range(1, 10, 1):
         data = 'x' * n 
         b = data
@@ -29,12 +29,11 @@ def main():
         min_mem = 0
         while b:
             if n == len(b):
-                max_mem = getsizeof(b) - getsizeof('')
+                max_mem = getsizeof(b) - getsizeof('') 
             elif len(b) == 1:
                 min_mem = getsizeof(b) - getsizeof('')
             b = b[1:]
         stop = time.time()
-        #print(f'Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
         a = random.randint(80, 100)
         if a >= 96:
             print(f'Sinal Verde: {a}')
@@ -49,8 +48,16 @@ def main():
         #print(f'O2 Amarelo: {countAmarelo}')
         #print(f'O2 Vermelho: {countVermelho}')
         l1.append(stop-start)
-        insere_dado(con, n, a) 
+        insere_dado(con, n, a)
+    #print(f'Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
     fechar_conexao(con)
+
+
+#range(1, 1441) -- 1 usuário
+#range(1, 4321) -- 3 usuários
+#range(1, 7201) -- 5 usuários
+#range(1, 14401) -- 10 usuários
+#range(1, 72001) -- 50 usuários
 
 
 
