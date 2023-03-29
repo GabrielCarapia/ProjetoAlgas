@@ -2,6 +2,8 @@ import time
 from sys import getsizeof
 import random
 from conexao import criar_conexao, fechar_conexao
+import dis
+import timeit
 
 
 def insere_dado(con, id, porc_o2):
@@ -17,6 +19,21 @@ l2 = []
 countVerde = 0
 countAmarelo = 0
 countVermelho = 0
+
+def sum1():
+    s = 0
+    for i in range(1000000):
+        s += i
+    return s
+print('For Loop Sum:', timeit.timeit(sum1, number=2))
+dis.dis(sum1)
+
+
+def sum2():
+    return sum(range(1000000))
+dis.dis(sum2)
+print('Function Sum:', timeit.timeit(sum2, number=2))
+
 
 def main():
     con = criar_conexao("localhost", "root", "Gcc#77801", "oximetro")
@@ -49,6 +66,8 @@ def main():
         #print(f'O2 Vermelho: {countVermelho}')
         l1.append(stop-start)
         insere_dado(con, n, a)
+    sum1()
+    sum2()
     #print(f'Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
     fechar_conexao(con)
 
