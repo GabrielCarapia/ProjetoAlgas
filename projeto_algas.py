@@ -14,73 +14,48 @@ def insere_dado(con, id, porc_o2):
     cursor.close()
     con.comit()
 
+
 l1 = []
-l2 = []
-countVerde = 0
-countAmarelo = 0
-countVermelho = 0
-
-def sum1():
-    s = 0
-    for i in range(1000000):
-        s += i
-    return s
-print('For Loop Sum:', timeit.timeit(sum1, number=2))
-dis.dis(sum1)
 
 
-def sum2():
-    return sum(range(1000000))
-dis.dis(sum2)
-print('Function Sum:', timeit.timeit(sum2, number=2))
-
-
-def main():
+def calcula_porc_o2(n, v):
     con = criar_conexao("localhost", "root", "Gcc#77801", "oximetro")
-    for n in range(1, 10, 1):
-        data = 'x' * n 
+    for i in range(n, v, n):
+        data = 'x' * i
         b = data
-        #print(b)
+        for j in i:
+            print(j)
+            a = random.radint(80, 100)
+            if a >= 96:
+                print(f'Sinal Verde: {a}')
+                countVerde = countVerde + 1
+            elif a > 90 & a < 96:
+                print(f'Sinal Amarelo: {a}')
+                countAmarelo = countAmarelo + 1
+            else:
+                print(f'Sinal Vermelho: {a}')
+                countVermelho = countVermelho + 1
+            print(a)
         start = time.time()
-        max_mem= 0
+        mex_mem = 0
         min_mem = 0
         while b:
-            if n == len(b):
-                max_mem = getsizeof(b) - getsizeof('') 
+            if i == len(b):
+                max_mem = getsizeof(b) - getsizeof('')
             elif len(b) == 1:
                 min_mem = getsizeof(b) - getsizeof('')
-            b = b[1:]
+            b = b[1:] 
         stop = time.time()
-        a = random.randint(80, 100)
-        if a >= 96:
-            print(f'Sinal Verde: {a}')
-            countVerde = countVerde + 1
-        elif a > 90 & a < 96:
-            print(f'Sinal Amarelo: {a}')
-            countAmarelo = countAmarelo + 1
-        else:
-            print(f'Sinal Vermelho: {a}')
-            countVermelho = countVermelho + 1
-        #print(f'O2 Verde: {countVerde}')
-        #print(f'O2 Amarelo: {countAmarelo}')
-        #print(f'O2 Vermelho: {countVermelho}')
+
+        print('Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
         l1.append(stop-start)
-        insere_dado(con, n, a)
-    sum1()
-    sum2()
-    #print(f'Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
+        insere_dado(con, i, a)
     fechar_conexao(con)
 
 
-#range(1, 1441) -- 1 usuário
-#range(1, 4321) -- 3 usuários
-#range(1, 7201) -- 5 usuários
-#range(1, 14401) -- 10 usuários
-#range(1, 72001) -- 50 usuários
 
-
-
-
-
-
-
+calcula_porc_o2(1441, 1)
+calcula_porc_o2(3, 4321)
+calcula_porc_o2(5, 7201)
+calcula_porc_o2(10, 14401)
+calcula_porc_o2(50, 72001)
