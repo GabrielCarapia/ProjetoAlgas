@@ -19,7 +19,7 @@ l1 = []
 
 
 def calcula_porc_o2(n, v):
-    con = criar_conexao("localhost", "root", "Gcc#77801", "oximetro")
+    con = criar_conexao("python-mysql", "root", "urubu100", "oximetro")
     for i in range(n, v, n):
         data = 'x' * i
         b = data
@@ -27,13 +27,13 @@ def calcula_porc_o2(n, v):
             print(j)
             a = random.radint(80, 100)
             if a >= 96:
-                print(f'Sinal Verde: {a}')
+                #print(f'Sinal Verde: {a}')
                 countVerde = countVerde + 1
             elif a > 90 & a < 96:
-                print(f'Sinal Amarelo: {a}')
+                #print(f'Sinal Amarelo: {a}')
                 countAmarelo = countAmarelo + 1
             else:
-                print(f'Sinal Vermelho: {a}')
+                #print(f'Sinal Vermelho: {a}')
                 countVermelho = countVermelho + 1
             print(a)
         start = time.time()
@@ -54,7 +54,7 @@ def calcula_porc_o2(n, v):
 
 
 
-calcula_porc_o2(1441, 1)
+calcula_porc_o2(1, 1441)
 calcula_porc_o2(3, 4321)
 calcula_porc_o2(5, 7201)
 calcula_porc_o2(10, 14401)

@@ -1,0 +1,20 @@
+create database oximetro;
+
+use oximetro;
+
+
+create table percOfoxygen(
+	id integer primary key not null auto_increment,
+	nameUsuario varchar(200),
+	perc_oxygen varchar(10)
+);
+
+
+select * from percOfOxygen;
+
+docker exec -it python-mysql mysql -uroot -p -> acessar mysql
+docker stop ${IDContainer}
+
+Senha mysql: urubu100
+
+
