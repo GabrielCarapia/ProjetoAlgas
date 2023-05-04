@@ -2,8 +2,7 @@ import time
 from sys import getsizeof
 import random
 from conexao import criar_conexao, fechar_conexao
-import dis
-import timeit
+
 
 
 def insere_dado(con, nameUsuario, id, porc_o2):
