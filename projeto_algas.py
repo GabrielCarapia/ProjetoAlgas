@@ -53,7 +53,7 @@ def calcula_porc_o2(n, v):
         stop = time.time()
         #print('Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
         l1.append(stop-start)
-        insere_dado_dois(stop-start, (max_mem/10**3), min_mem)
+        insere_dado_dois(con, stop-start, (max_mem/10**3), min_mem)
         insere_dado(con, "carapia02211018", a)
     fechar_conexao(con)
 
