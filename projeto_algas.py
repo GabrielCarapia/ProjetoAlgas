@@ -14,6 +14,15 @@ def insere_dado(con, nameUsuario, perc_oxygen):
     con.comit()
 
 
+def insere_dado_dois(con, tempo_exec, max_mem, min_mem):
+    cursor = con.cursor()
+    sql = "INSERT INTO machine_info (tempo_exec, max_mem, min_mem) VALUES (%d, %d, %d)"
+    valores = (tempo_exec, max_mem, min_mem)
+    cursor.execute(sql, valores)
+    cursor.close()
+    con.comit()
+
+
 l1 = []
 
 
@@ -31,7 +40,7 @@ def calcula_porc_o2(n, v):
             print(f'Sinal Amarelo: {a}')
         else:
             print(f'Sinal Vermelho: {a}')
-        print(a)
+        #print(a)
         start = time.time()
         mex_mem = 0
         min_mem = 0
@@ -44,6 +53,7 @@ def calcula_porc_o2(n, v):
         stop = time.time()
         #print('Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
         l1.append(stop-start)
+        insere_dado_dois(stop-start, (max_mem/10**3), (min_mem))
         insere_dado(con, "carapia02211018", a)
     fechar_conexao(con)
 
