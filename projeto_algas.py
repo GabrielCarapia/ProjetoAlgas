@@ -7,7 +7,7 @@ from conexao import criar_conexao, fechar_conexao
 
 def insere_dado(con, nameUsuario, perc_oxygen):
     cursor = con.cursor()
-    sql = "INSERT INTO percOfoxygen (nameUsuario, perc_oxygen) VALUES (%d, %d)"
+    sql = "INSERT INTO percOfoxygen (nameUsuario, perc_oxygen) VALUES (%s, %s)"
     valores = (nameUsuario, perc_oxygen)
     cursor.execute(sql, valores)
     cursor.close()
@@ -16,7 +16,7 @@ def insere_dado(con, nameUsuario, perc_oxygen):
 
 def insere_dado_dois(con, tempo_exec, max_mem, min_mem):
     cursor = con.cursor()
-    sql = "INSERT INTO machine_info (tempo_exec, max_mem, min_mem) VALUES (%d, %d, %d)"
+    sql = "INSERT INTO machine_info (tempo_exec, max_mem, min_mem) VALUES (%s, %s, %s)"
     valores = (tempo_exec, max_mem, min_mem)
     cursor.execute(sql, valores)
     cursor.close()
