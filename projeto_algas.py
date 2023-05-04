@@ -11,7 +11,7 @@ def insere_dado(con, nameUsuario, perc_oxygen):
     valores = (nameUsuario, perc_oxygen)
     cursor.execute(sql, valores)
     cursor.close()
-    con.comit()
+    con.commit()
 
 
 def insere_dado_dois(con, tempo_exec, max_mem, min_mem):
@@ -20,7 +20,7 @@ def insere_dado_dois(con, tempo_exec, max_mem, min_mem):
     valores = (tempo_exec, max_mem, min_mem)
     cursor.execute(sql, valores)
     cursor.close()
-    con.comit()
+    con.commit()
 
 
 l1 = []
