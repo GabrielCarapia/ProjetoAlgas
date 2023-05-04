@@ -24,7 +24,7 @@ def calcula_porc_o2(n, v):
         b = data
         #for j in i:
         #   print(j)
-        a = random.radint(80, 100)
+        a = random.randint(80, 100)
         if a >= 96:
             print(f'Sinal Verde: {a}')
         elif a > 90 & a < 96:
