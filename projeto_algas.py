@@ -18,7 +18,7 @@ l1 = []
 
 
 def calcula_porc_o2(n, v):
-    con = criar_conexao("localhost", "root", "urubu100", "oximetro")
+    con = criar_conexao("localhost", "root", "urubu100", "oximetro", "30306")
     for i in range(n, v, n):
         data = 'x' * i
         b = data
@@ -54,7 +54,7 @@ def calcula_porc_o2(n, v):
 
 
 calcula_porc_o2(1, 1441)
-calcula_porc_o2(3, 4321)
-calcula_porc_o2(5, 7201)
-calcula_porc_o2(10, 14401)
-calcula_porc_o2(50, 72001)
+#calcula_porc_o2(3, 4321)
+#calcula_porc_o2(5, 7201)
+#calcula_porc_o2(10, 14401)
+#calcula_porc_o2(50, 72001)
