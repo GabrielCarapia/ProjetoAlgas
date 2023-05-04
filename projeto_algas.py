@@ -6,10 +6,10 @@ import dis
 import timeit
 
 
-def insere_dado(con, id, porc_o2):
+def insere_dado(con, nameUsuario, id, porc_o2):
     cursor = con.cursor()
-    sql = "INSERT INTO porc_o2_sangue (id, porc_o2) values (%d, %d)"
-    valores = (id, porc_o2)
+    sql = "INSERT INTO porc_o2_sangue (id, nameUsuario, perc_oxygen) VALUES (%d, %d, %d)"
+    valores = (id, nameUsuario, porc_o2)
     cursor.execute(sql, valores)
     cursor.close()
     con.comit()
@@ -49,7 +49,7 @@ def calcula_porc_o2(n, v):
 
         print('Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
         l1.append(stop-start)
-        insere_dado(con, i, a)
+        insere_dado(con, "carapia02211018", i, a)
     fechar_conexao(con)
 
 
