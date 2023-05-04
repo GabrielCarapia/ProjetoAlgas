@@ -22,19 +22,16 @@ def calcula_porc_o2(n, v):
     for i in range(n, v, n):
         data = 'x' * i
         b = data
-        for j in i:
-            print(j)
-            a = random.radint(80, 100)
-            if a >= 96:
-                #print(f'Sinal Verde: {a}')
-                countVerde = countVerde + 1
-            elif a > 90 & a < 96:
-                #print(f'Sinal Amarelo: {a}')
-                countAmarelo = countAmarelo + 1
-            else:
-                #print(f'Sinal Vermelho: {a}')
-                countVermelho = countVermelho + 1
-            print(a)
+        #for j in i:
+        #   print(j)
+        a = random.radint(80, 100)
+        if a >= 96:
+            print(f'Sinal Verde: {a}')
+        elif a > 90 & a < 96:
+            print(f'Sinal Amarelo: {a}')
+        else:
+            print(f'Sinal Vermelho: {a}')
+        print(a)
         start = time.time()
         mex_mem = 0
         min_mem = 0
@@ -45,7 +42,6 @@ def calcula_porc_o2(n, v):
                 min_mem = getsizeof(b) - getsizeof('')
             b = b[1:] 
         stop = time.time()
-
         print('Valor {n} {stop-start} - Max mem {max_mem/10**3} Kb - Min mem {min_mem} B')
         l1.append(stop-start)
         insere_dado(con, "carapia02211018", i, a)
