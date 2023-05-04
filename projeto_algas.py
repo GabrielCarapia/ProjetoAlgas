@@ -7,7 +7,7 @@ from conexao import criar_conexao, fechar_conexao
 
 def insere_dado(con, nameUsuario, id, porc_o2):
     cursor = con.cursor()
-    sql = "INSERT INTO porc_o2_sangue (id, nameUsuario, perc_oxygen) VALUES (%d, %d, %d)"
+    sql = "INSERT INTO percOfoxygen (id, nameUsuario, perc_oxygen) VALUES (%d, %d, %d)"
     valores = (id, nameUsuario, porc_o2)
     cursor.execute(sql, valores)
     cursor.close()
