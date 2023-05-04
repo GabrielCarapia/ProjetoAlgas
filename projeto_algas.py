@@ -18,7 +18,7 @@ l1 = []
 
 
 def calcula_porc_o2(n, v):
-    con = criar_conexao("python-mysql", "ubuntu", "urubu100", "oximetro")
+    con = criar_conexao("localhost", "root", "urubu100", "oximetro")
     for i in range(n, v, n):
         data = 'x' * i
         b = data
